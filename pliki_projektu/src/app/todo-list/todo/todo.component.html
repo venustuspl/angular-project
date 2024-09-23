@@ -3,7 +3,7 @@
     type="checkbox"
     class="form-check-input my-1"
     [checked]="todo.isComplete"
-    (change)="changeTodoStatus(todo)"
+    (change)="changeTodoStatus()"
   >
   <span class="todo-item" [ngClass]="{'text-decoration-line-through': todo.isComplete}">{{ i + 1 }}. {{ todo.name }}</span>
 
