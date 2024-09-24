@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, DoCheck, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Todo} from "../../shared/interfaces/todo.interface";
 
 @Component({
@@ -7,16 +7,30 @@ import {Todo} from "../../shared/interfaces/todo.interface";
   styleUrls: ['./todo.component.css']
 })
 // implements OnChanges
-export class TodoComponent implements OnChanges  {
+// implements OnInit
+export class TodoComponent  {
  @Input() todo!: Todo;
  @Input() i!: number;
  @Output() delete = new EventEmitter<void>();
  @Output() changeStatus = new EventEmitter<number>();
  openModal = false;
 
- ngOnChanges(changes: SimpleChanges): void {
-   console.log(changes)
- }
+
+// constructor() {
+//   console.log(this.todo)
+// }
+
+// ngOnInit(): void {
+//   console.log(this.todo)
+// }
+
+ // ngOnChanges(changes: SimpleChanges): void {
+ //   console.log(changes)
+ // }
+ //
+ //  ngDoCheck(): void {
+ //    console.log('ngDoCheck został wykonany!')
+ //  }
 
   changeTodoStatus() {
     this.changeStatus.emit(this.i);
