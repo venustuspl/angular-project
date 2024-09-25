@@ -1,4 +1,6 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {
+  Component,
+} from '@angular/core';
 import {Todo} from "../shared/interfaces/todo.interface";
 
 @Component({
@@ -6,10 +8,21 @@ import {Todo} from "../shared/interfaces/todo.interface";
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent {
+//  implements AfterViewInit, AfterViewChecked
+export class TodoListComponent{
 
+  // @ViewChild(TodoComponent) todoComp!: TodoComponent;
+  // @ViewChildren(TodoComponent) todoComps!: TodoComponent;
   todos: Todo[] = [];
   errorMessage = '';
+
+  // ngAfterViewInit(): void {
+  //   console.log(this.todoComp);
+  // }
+  //
+  // ngAfterViewChecked(): void {
+  //   console.log(this.todoComp)
+  // }
 
   addTodo(todo: string): void {
     if(todo.length <= 3) {

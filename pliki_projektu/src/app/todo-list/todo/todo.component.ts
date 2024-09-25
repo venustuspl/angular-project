@@ -1,4 +1,9 @@
-import {Component, DoCheck, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import {Todo} from "../../shared/interfaces/todo.interface";
 
 @Component({
@@ -8,12 +13,14 @@ import {Todo} from "../../shared/interfaces/todo.interface";
 })
 // implements OnChanges
 // implements OnInit
-export class TodoComponent  {
+export class TodoComponent{
  @Input() todo!: Todo;
  @Input() i!: number;
  @Output() delete = new EventEmitter<void>();
  @Output() changeStatus = new EventEmitter<number>();
+ // @ViewChild('li') li!: ElementRef;
  openModal = false;
+ timeout!: number;
 
 
 // constructor() {
@@ -21,7 +28,9 @@ export class TodoComponent  {
 // }
 
 // ngOnInit(): void {
-//   console.log(this.todo)
+//   this.timeout = setTimeout(() => {
+//     console.log('setTImeout')
+//   }, 3000)
 // }
 
  // ngOnChanges(changes: SimpleChanges): void {
@@ -31,6 +40,15 @@ export class TodoComponent  {
  //  ngDoCheck(): void {
  //    console.log('ngDoCheck został wykonany!')
  //  }
+
+  // ngAfterViewInit(): void {
+  //   console.log(this.li)
+  // }
+
+  // ngOnDestroy(): void {
+  //   console.log('test')
+  //   clearTimeout(this.timeout);
+  // }
 
   changeTodoStatus() {
     this.changeStatus.emit(this.i);
