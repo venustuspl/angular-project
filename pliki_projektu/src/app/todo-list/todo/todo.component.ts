@@ -20,7 +20,6 @@ export class TodoComponent{
  @Output() changeStatus = new EventEmitter<number>();
  // @ViewChild('li') li!: ElementRef;
  openModal = false;
- timeout!: number;
 
 
 // constructor() {

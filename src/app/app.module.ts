@@ -9,6 +9,7 @@ import { AlertComponent } from './shared/components/alert/alert.component';
 import { AddTodoFormComponent } from './todo-list/add-todo-form/add-todo-form.component';
 import { TodoComponent } from './todo-list/todo/todo.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
+import { FirstLetterUppercasePipe } from './shared/pipes/first-letter-uppercase.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ModalComponent } from './shared/components/modal/modal.component';
     AlertComponent,
     AddTodoFormComponent,
     TodoComponent,
-    ModalComponent
+    ModalComponent,
+    FirstLetterUppercasePipe
   ],
   imports: [
     BrowserModule
