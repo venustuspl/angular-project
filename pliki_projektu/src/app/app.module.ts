@@ -11,6 +11,7 @@ import { TodoComponent } from './todo-list/todo/todo.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import localePl from '@angular/common/locales/pl';
 import {registerLocaleData} from "@angular/common";
+import { FirstLetterUppercasePipe } from './shared/pipes/first-letter-uppercase.pipe';
 
 registerLocaleData(localePl);
 
@@ -23,7 +24,8 @@ registerLocaleData(localePl);
     AlertComponent,
     AddTodoFormComponent,
     TodoComponent,
-    ModalComponent
+    ModalComponent,
+    FirstLetterUppercasePipe
   ],
   imports: [
     BrowserModule
