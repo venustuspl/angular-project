@@ -2,6 +2,7 @@ import {
   Component,
 } from '@angular/core';
 import {Todo} from "../shared/interfaces/todo.interface";
+import {TodoService} from "../core/services/todo.service";
 
 @Component({
   selector: 'app-todo-list',
@@ -10,19 +11,11 @@ import {Todo} from "../shared/interfaces/todo.interface";
 })
 //  implements AfterViewInit, AfterViewChecked
 export class TodoListComponent{
-
-  // @ViewChild(TodoComponent) todoComp!: TodoComponent;
-  // @ViewChildren(TodoComponent) todoComps!: TodoComponent;
-  todos: Todo[] = JSON.parse(localStorage.getItem('todos')!) ?? [];
+  todos: Todo[] = this.todoService.todos;
   errorMessage = '';
 
-  // ngAfterViewInit(): void {
-  //   console.log(this.todoComp);
-  // }
-  //
-  // ngAfterViewChecked(): void {
-  //   console.log(this.todoComp)
-  // }
+  constructor(private todoService: TodoService) {}
+
 
   addTodo(todo: string): void {
     if(todo.length <= 3) {
@@ -30,9 +23,8 @@ export class TodoListComponent{
       return;
     }
 
-    this.todos.push({ name: todo, isComplete: false});
-    localStorage.setItem('todos', JSON.stringify(this.todos));
-    // console.log('Aktualna lista todo: ', this.todos);
+    this.todoService.addTodo(todo);
+    this.todos = this.todoService.todos;
   }
 
   clearErrorMessage() {
@@ -40,15 +32,12 @@ export class TodoListComponent{
   }
 
   deleteTodo(i: number) {
-    this.todos = this.todos.filter((todo, index) => index !== i)
-    localStorage.setItem('todos', JSON.stringify(this.todos));
+    this.todoService.deleteTodo(i);
+    this.todos = this.todoService.todos;
   }
 
   changeTodoStatus(index: number) {
-    this.todos[index] = {
-      ...this.todos[index],
-      isComplete: !this.todos[index].isComplete
-    }
-    localStorage.setItem('todos', JSON.stringify(this.todos));
+    this.todoService.changeTodoStatus(index);
+    this.todos = this.todoService.todos;
   }
 }
