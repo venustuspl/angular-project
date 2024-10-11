@@ -1,8 +1,9 @@
 import {
-  Component,
+  Component, OnInit,
 } from '@angular/core';
 import {Todo} from "../shared/interfaces/todo.interface";
 import {TodoService} from "../core/services/todo.service";
+import {TestService} from "../core/services/test.service";
 
 @Component({
   selector: 'app-todo-list',
@@ -14,7 +15,7 @@ export class TodoListComponent{
   todos: Todo[] = this.todoService.todos;
   errorMessage = '';
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService, private testService: TestService) {}
 
 
   addTodo(todo: string): void {
