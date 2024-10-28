@@ -30,7 +30,7 @@ export class ModalComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     if (this.sub) {
-      // this.sub.unsubscribe();
+      this.sub.unsubscribe();
     }
     // console.log(this.sub)
   }
