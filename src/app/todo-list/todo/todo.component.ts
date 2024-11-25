@@ -1,13 +1,8 @@
 import {
-  AfterViewInit,
   Component,
-  DoCheck, ElementRef,
   EventEmitter,
   Input,
-  OnChanges,
-  OnInit,
   Output,
-  SimpleChanges, ViewChild
 } from '@angular/core';
 import {Todo} from "../../shared/interfaces/todo.interface";
 
@@ -32,7 +27,9 @@ export class TodoComponent{
 // }
 
 // ngOnInit(): void {
-//   console.log(this.todo)
+//   this.timeout = setTimeout(() => {
+//     console.log('setTImeout')
+//   }, 3000)
 // }
 
  // ngOnChanges(changes: SimpleChanges): void {
@@ -45,6 +42,11 @@ export class TodoComponent{
 
   // ngAfterViewInit(): void {
   //   console.log(this.li)
+  // }
+
+  // ngOnDestroy(): void {
+  //   console.log('test')
+  //   clearTimeout(this.timeout);
   // }
 
   changeTodoStatus() {

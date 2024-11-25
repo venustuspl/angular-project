@@ -1,15 +1,13 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
   template: `
     <p class="text-center">
       &copy; Prawa zastrzeżone
-      *to jest component inline
     </p>
   `,
-  styleUrls: ['./footer.component.css'],
-  encapsulation: ViewEncapsulation.Emulated
+  styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
 
