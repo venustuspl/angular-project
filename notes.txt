@@ -1,0 +1,11 @@
+Metody HTTP:
+
+1. GET - metoda GET jest używana do pobierania zasobów (np. stron internetowych, danych w JSON) z serwera.
+
+2. POST - metoda POST służy do przesyłania danych do serwera. Na przykład, gdy użytkownik wypełnia formularz na stronie internetowej, te dane mogą być przesyłane do serwera za pomocą metody POST, na wskutek czego zostanie utworzony nowy wpis w bazie danych / zostanie dodany nowy zasób na serwer.
+
+3. PUT - metoda PUT służy do aktualizacji istniejącego zasobu na serwerze (całego).
+
+4. PATCH - metoda PATCH jest podobna do metody PUT, ale różni się tym, że służy do aktualizacji tylko części istniejącego zasobu.
+
+5. DELETE - metoda DELETE jest używana do usuwania zasobów z serwera.
