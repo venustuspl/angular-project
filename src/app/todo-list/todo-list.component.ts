@@ -3,8 +3,8 @@ import {
 } from '@angular/core';
 import {Todo} from "../shared/interfaces/todo.interface";
 import {TodoService} from "../core/services/todo.service";
-import {TestService} from "../core/services/test.service";
 import {Subscription} from "rxjs";
+import {TodoApiService} from "../core/services/todo-api.service";
 
 @Component({
   selector: 'app-todo-list',
@@ -17,12 +17,19 @@ export class TodoListComponent implements OnInit, OnDestroy{
   errorMessage = '';
   sub!: Subscription;
 
-  constructor(private todoService: TodoService, private testService: TestService) {}
+  constructor(private todoService: TodoService, private todoApiService: TodoApiService) {}
 
 
   ngOnInit(): void {
      this.sub = this.todoService.todoChanged.subscribe({
        next: arrTodos => this.todos = arrTodos
+     });
+
+     this.todoApiService.getTodos().subscribe({
+       next: todos => {
+         // console.log(todos)
+         this.todos = todos;
+       }
      })
   }
 
