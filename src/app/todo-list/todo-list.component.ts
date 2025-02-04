@@ -27,9 +27,8 @@ export class TodoListComponent implements OnInit, OnDestroy{
 
      if (this.todos.length === 0) {
        this.todoApiService.getTodos().subscribe({
-         next: todos => {
-           // console.log(todos)
-           // this.todos = todos;
+         error: err => {
+           this.errorMessage = 'Wystąpił błąd. Spróbuj ponownie.'
          }
        })
      }
