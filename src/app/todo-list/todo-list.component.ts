@@ -36,11 +36,14 @@ export class TodoListComponent implements OnInit, OnDestroy{
 
 
   addTodo(todo: string): void {
-    if(todo.length <= 3) {
-      this.errorMessage = 'Zadanie powinno mieć co najmniej 4 znaki!';
-      return;
-    }
-
+    this.todoApiService.postTodo({name: todo, isComplete: false}).subscribe({
+      next: value => {
+        console.log(value)
+      },
+      error: err => {
+        this.errorMessage = 'Wystąpił błąd. Spróbuj ponownie.'
+      }
+    })
     this.todoService.addTodo(todo);
   }
 
