@@ -37,14 +37,10 @@ export class TodoListComponent implements OnInit, OnDestroy{
 
   addTodo(todo: string): void {
     this.todoApiService.postTodo({name: todo, isComplete: false}).subscribe({
-      next: value => {
-        console.log(value)
-      },
       error: err => {
         this.errorMessage = 'Wystąpił błąd. Spróbuj ponownie.'
       }
-    })
-    this.todoService.addTodo(todo);
+    });
   }
 
   clearErrorMessage() {
