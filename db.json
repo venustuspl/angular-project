@@ -4,11 +4,6 @@
       "id": 1,
       "name": "Zadanie testowe",
       "isComplete": false
-    },
-    {
-      "name": "Test 1",
-      "isComplete": false,
-      "id": 2
     }
   ]
 }
