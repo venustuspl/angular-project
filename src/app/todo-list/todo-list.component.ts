@@ -55,8 +55,15 @@ export class TodoListComponent implements OnInit, OnDestroy{
     })
   }
 
-  changeTodoStatus(index: number) {
-    this.todoService.changeTodoStatus(index);
+  changeTodoStatus(id: number, todo: Todo) {
+    this.todoApiService.patchTodo(id, {isComplete: !todo.isComplete}).subscribe({
+      next: value => {
+        console.log(value)
+      }, error: err => {
+        this.errorMessage = 'Wystąpił błąd. Spróbuj ponownie.'
+      }
+    })
+    // this.todoService.changeTodoStatus(index);
   }
 
   ngOnDestroy(): void {

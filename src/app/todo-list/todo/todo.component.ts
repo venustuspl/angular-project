@@ -16,6 +16,7 @@ import {ActivatedRoute, NavigationExtras, Router} from "@angular/router";
 // implements OnInit
 export class TodoComponent{
  @Input() todo!: Todo;
+ @Input() id!: number;
  @Input() i!: number;
  @Output() delete = new EventEmitter<void>();
  @Output() changeStatus = new EventEmitter<number>();
@@ -49,7 +50,7 @@ constructor(private router: Router, private route: ActivatedRoute) {}
   // }
 
   changeTodoStatus() {
-    this.changeStatus.emit(this.i);
+    this.changeStatus.emit(this.id);
   }
 
   toggleModal(): void {
@@ -66,6 +67,6 @@ constructor(private router: Router, private route: ActivatedRoute) {}
     // state: { example: 'test' }
     // queryParams: {id: this.i, test: 'wartosc'}
   }
-    this.router.navigate([this.i], navigationExtras)
+    this.router.navigate([this.id], navigationExtras)
   }
 }
