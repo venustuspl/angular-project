@@ -36,16 +36,15 @@ export class TodoService {
     this.todoChanged.next(this.todos);
   }
 
-  changeTodoStatus(index: number) {
-    this._todos[index] = {
-      ...this.todos[index],
-      isComplete: !this.todos[index].isComplete
+  changeTodoStatus(id: number, isComplete: boolean) {
+    const searchedTodo = this.todos.find(todo => todo.id === id);
+    if (searchedTodo) {
+      searchedTodo.isComplete = isComplete;
     }
-    this.saveToLocalStorage();
     this.todoChanged.next(this.todos);
   }
 
-  saveToLocalStorage() {
-    localStorage.setItem('todos', JSON.stringify(this.todos));
-  }
+  // saveToLocalStorage() {
+  //   localStorage.setItem('todos', JSON.stringify(this.todos));
+  // }
 }
