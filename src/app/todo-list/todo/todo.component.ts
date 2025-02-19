@@ -62,11 +62,11 @@ constructor(private router: Router, private route: ActivatedRoute) {}
   }
 
   navigateToDetails() {
-  const navigationExtras: NavigationExtras = {
-    relativeTo: this.route,
-    // state: { example: 'test' }
-    // queryParams: {id: this.i, test: 'wartosc'}
-  }
+    const navigationExtras: NavigationExtras = {
+      relativeTo: this.route,
+      // state: { example: 'test' }
+      // queryParams: {id: this.i, test: 'wartosc'}
+    }
     this.router.navigate([this.id], navigationExtras)
   }
 }
