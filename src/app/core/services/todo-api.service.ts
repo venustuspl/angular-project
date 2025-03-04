@@ -22,6 +22,7 @@ export class TodoApiService {
 
     return this.http.get<Todo[]>('http://localhost:3000/todo', {
       headers,
+      // responseType:
       // params
     }).pipe(
       tap((todos) => this.todoService.todos = todos)
